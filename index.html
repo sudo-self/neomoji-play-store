@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the NeoMoji Beta</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-image: url('./play.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .bg-overlay {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex items-center justify-center p-6">
+
+  <div class="overlay z-0"></div>
+
+  <div class="z-10 max-w-xl w-full rounded-3xl shadow-xl p-8 text-gray-900 space-y-6 bg-overlay">
+    <h1 class="text-3xl font-bold text-center">📱 Join the NeoMoji Beta</h1>
+
+    <p class="text-lg text-center">
+      Be one of the first to try <strong>NeoMoji</strong>, the playful and expressive emoji app that's redefining stickers and reactions.
+    </p>
+
+    <ul class="list-disc list-inside text-gray-800">
+      <li>✨ Early access to new features</li>
+      <li>💬 Direct influence on development</li>
+      <li>🎁 Exclusive beta-only surprises</li>
+    </ul>
+
+    <div class="text-center">
+      <a
+        href="https://play.google.com/apps/testing/app.vercel.neomoji.twa"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition"
+      >
+        Opt In on Google Play
+      </a>
+    </div>
+
+    <div class="text-center mt-6">
+      <p class="text-sm text-gray-700 mb-2">
+        If you don't have the NeoMoji app installed, download it from Google Play:
+      </p>
+      <a
+        href="https://play.google.com/store/apps/details?id=app.vercel.neomoji.twa&hl=en-US&ah=YeLI9OMQizGtPmyz4pQslXlpx0Q"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+          alt="Get it on Google Play"
+          class="mx-auto w-48"
+        />
+      </a>
+    </div>
+
+    <p class="text-sm text-gray-700 text-center">
+      The NeoMoji app delivers the same experience as our web app at
+      <a href="https://neomoji.vercel.app" class="text-indigo-600 underline hover:text-indigo-800" target="_blank">neomoji.vercel.app</a> —
+      now with the convenience of Android.
+    </p>
+
+  </div>
+
+</body>
+</html>
+
+
+
+
+
