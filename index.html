@@ -7,126 +7,230 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <style>
     body {
-      background-image: url('./play.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
     }
-    .bg-overlay {
+    .card {
       backdrop-filter: blur(10px);
-      background-color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
     }
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background-color: rgba(0, 0, 0, 0.4);
+    .emoji-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
   </style>
 </head>
-<body class="relative min-h-screen flex items-center justify-center p-6">
-
-  <div class="overlay z-0"></div>
-
-  <div class="z-10 max-w-xl w-full rounded-3xl shadow-xl p-8 text-gray-900 space-y-6 bg-overlay">
-    <h1 class="text-3xl font-bold text-center">📱 NeoMoji Closed Beta</h1>
-
-    <p class="text-lg text-center">
-      NeoMoji is an expressive new way to use emojis, reactions, and stickers. We're running a closed beta and would love to invite you!
-    </p>
-
-    <ul class="list-disc list-inside text-gray-800">
-      <li>✨ Early access to exclusive features</li>
-      <li>📬 Manually approved access — no spam</li>
-      <li>🎉 Be part of shaping the final product</li>
-    </ul>
-
-<form action="https://formspree.io/f/xvgpyrpp" method="POST" class="space-y-4 mt-6 text-center">
-  <input
-    type="email"
-    name="email"
-    placeholder="Enter your email to request access"
-    required
-    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-  />
-  <button
-    type="submit"
-    class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-xl transition"
-  >
-    Request Access
-  </button>
-</form>
-
-
-    <div class="text-center mt-4">
-      <p class="text-sm text-gray-700">
-        Once you're approved, the following link will activate:
+<body class="relative flex items-center justify-center p-4 sm:p-6">
+  <div class="z-10 w-full max-w-2xl rounded-2xl card p-8 space-y-6">
+    <div class="text-center">
+      <div class="emoji-float inline-block text-5xl mb-4">🤩</div>
+      <h1 class="text-3xl font-bold text-gray-900">Join the NeoMoji Beta</h1>
+      <p class="text-lg text-gray-700 mt-2">
+        Revolutionizing digital expression with next-gen emojis & stickers
       </p>
-      <a
-        href="https://play.google.com/apps/testing/app.vercel.neomoji.twa"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block mt-2 bg-gray-300 text-gray-600 px-6 py-2 rounded-xl"
-        onclick="return true;"
-      >
-        Opt-In Link (Activated After Approval)
-      </a>
     </div>
 
-    <div class="text-center mt-6">
-      <a
-        href=https://play.google.com/apps/test/RQo3tpsPa5M/ahAO29uNRc7KKfI3jWbT6O-5qn9Yc8_OYF3VyRgZyOMGTlP80sw_DLiTrB5_F3MWD7aGSEBrWz6IIBzB9MSjdSINce"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
-          alt="Get it on Google Play"
-          class="mx-auto w-48"
-        />
-      </a>
+    <div class="grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <ul class="space-y-3">
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">✨</span>
+            <span>Exclusive early access to all features</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🎨</span>
+            <span>Custom sticker creator tools</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">💬</span>
+            <span>Direct influence on product development</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-2xl mr-3">🎁</span>
+            <span>Special rewards for active testers</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-white p-6 rounded-xl shadow-sm">
+        <form id="betaForm" class="space-y-4">
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Your Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@email.com"
+              required
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            />
+          </div>
+          
+          <div>
+            <label for="device" class="block text-sm font-medium text-gray-700 mb-1">Your Device</label>
+            <select
+              id="device"
+              name="device"
+              class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            >
+              <option value="">Select your device</option>
+              <option value="android">Android Phone</option>
+              <option value="ios">iPhone</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <button
+            type="submit"
+            id="submitBtn"
+            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200 flex items-center justify-center"
+          >
+            <span id="btnText">Join Beta Test</span>
+            <svg id="spinner" class="hidden w-5 h-5 ml-2 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+          </button>
+        </form>
+        
+        <div id="formMessage" class="mt-4 text-sm text-center hidden"></div>
+      </div>
     </div>
 
-    <p class="text-sm text-gray-700 text-center">
-      The NeoMoji app mirrors the web experience at
-      <a href="https://neomoji.vercel.app" class="text-indigo-600 underline hover:text-indigo-800" target="_blank">neomoji.vercel.app</a> —
-      now conveniently on Android.
-    </p>
+    <div class="text-center">
+      <p class="text-sm text-gray-600 mb-4">
+        Already approved? Access the beta directly:
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a
+          href="https://play.google.com/apps/testing/app.vercel.neomoji.twa"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition"
+        >
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+          </svg>
+          Android Beta
+        </a>
+        
+        <a
+          href="https://neomoji.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition"
+        >
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+          Web Version
+        </a>
+      </div>
+    </div>
   </div>
 
   <script>
-    async function submitEmail(e) {
-      e.preventDefault()
-      const email = document.getElementById('email').value
-      const message = document.getElementById('formMessage')
-
-      if (!email.includes('@')) {
-        message.innerText = 'Please enter a valid email address.'
-        return
+    document.getElementById('betaForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value;
+      const device = document.getElementById('device').value;
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const spinner = document.getElementById('spinner');
+      const message = document.getElementById('formMessage');
+      
+      // Validate email
+      if (!email.includes('@') || !email.includes('.')) {
+        showMessage('Please enter a valid email address', 'error');
+        return;
       }
-
-      const result = await fetch('https://amused-walleye-31373.upstash.io/set/beta:' + encodeURIComponent(email), {
-        method: 'POST',
-        headers: {
-          Authorization: 'Bearer AXqNASQgMWZmMTdjYTEtNTJjYi00MDczLWJmZDctNjFjZGUyOTA0ZjEyNjcyMTI0NDM2MDBjNDVmZmE5NjJlMTllYTkyMDI2MDU=',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(["requested", new Date().toISOString()])
-      })
-
-      if (result.ok) {
-        message.innerText = "✅ You're on the request list! We'll add you to the test and notify you when it's live."
-        document.getElementById('betaForm').reset()
-      } else {
-        message.innerText = "⚠️ Something went wrong. Please try again later."
+      
+      // Validate device
+      if (!device) {
+        showMessage('Please select your device type', 'error');
+        return;
       }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      btnText.textContent = 'Processing...';
+      spinner.classList.remove('hidden');
+      message.classList.add('hidden');
+      
+      try {
+        // Simulate API call (replace with actual Formspree or your backend)
+        const response = await fetch('https://formspree.io/f/xvgpyrpp', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            device,
+            _subject: 'New NeoMoji Beta Request',
+          }),
+        });
+        
+        if (response.ok) {
+          showMessage('🎉 Success! You\'ll receive an email when your access is approved.', 'success');
+          document.getElementById('betaForm').reset();
+          
+          // Track conversion (optional)
+          if (window.gtag) {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-123456789/AbC-D_EFGHIJKLmnopqr',
+            });
+          }
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        showMessage('⚠️ Something went wrong. Please try again later.', 'error');
+      } finally {
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.textContent = 'Join Beta Test';
+        spinner.classList.add('hidden');
+      }
+    });
+    
+    function showMessage(text, type) {
+      const message = document.getElementById('formMessage');
+      message.textContent = text;
+      message.className = 'mt-4 text-sm text-center';
+      message.classList.add(type === 'error' ? 'text-red-600' : 'text-green-600');
+      message.classList.remove('hidden');
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        message.classList.add('hidden');
+      }, 5000);
     }
+    
+    // Add some interactive emoji effects
+    document.querySelectorAll('li').forEach(item => {
+      item.addEventListener('mouseenter', function() {
+        this.querySelector('span:first-child').classList.add('animate__animated', 'animate__tada');
+      });
+      
+      item.addEventListener('mouseleave', function() {
+        this.querySelector('span:first-child').classList.remove('animate__animated', 'animate__tada');
+      });
+    });
   </script>
 </body>
 </html>
-
 
 
 
